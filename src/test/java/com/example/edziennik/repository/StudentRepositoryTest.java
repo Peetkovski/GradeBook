@@ -1,5 +1,6 @@
 package com.example.edziennik.repository;
 
+import com.example.edziennik.entity.Grades;
 import com.example.edziennik.entity.Student;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,11 +15,15 @@ class StudentRepositoryTest {
 
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private GradesRepository gradesRepository;
 
     @DisplayName("Add Student Informations")
 
     @Test
     void addStudentInfo(){
+
+
         Student student =
                 Student.builder()
                         .studentName("Piotrek")
@@ -29,7 +34,8 @@ class StudentRepositoryTest {
                         .studentEmail("Peet@gmail.com")
                         .studentApartment("12")
                         .build();
-        studentRepository.save(student);
+
+       studentRepository.save(student);
     }
 
     @Test
@@ -64,6 +70,13 @@ class StudentRepositoryTest {
 
     }
 
+
+    @Test
+    void findStudentByEmail(){
+        List<Student> studentList = studentRepository.findStudentByStudentEmail("Peet@gmail.com");
+
+        System.out.println(studentList);
+    }
 
 
 

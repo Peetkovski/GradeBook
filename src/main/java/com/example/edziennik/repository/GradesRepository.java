@@ -3,5 +3,11 @@ package com.example.edziennik.repository;
 import com.example.edziennik.entity.Grades;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface GradesRepository extends JpaRepository<Grades, Long> {
+import java.util.List;
+
+
+public interface GradesRepository extends JpaRepository<Grades,Long> {
+
+
+    List<Grades> findGradesByMark(Integer mark);
 }

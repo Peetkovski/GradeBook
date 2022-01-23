@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -20,9 +17,13 @@ public class Grades {
 
     @Id
     @GeneratedValue()
-    private Long Id;
-    private Integer Mark;
-    private String Descpription;
-    private String Date;
+    private Long grade_Id;
+    private Integer mark;
+    private String description;
+    private String date;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="student")
+    private List<Student> student;
+
 
 }

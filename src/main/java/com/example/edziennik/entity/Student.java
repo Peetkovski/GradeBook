@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Builder
@@ -17,7 +16,7 @@ public class Student {
 
     @Id
     @GeneratedValue
-    private Long studentId;
+    private Long student_id;
     private String studentName;
     private String studentSurname;
     private Integer studentAge;
